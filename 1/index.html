@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>three</title>
+    <style>
+        body { margin: 0; }
+        canvas {display: block; width: 100vw; height: 100vh }
+    </style>
+</head>
+<body>
+    <script src="../three_r87.js"></script>
+    <script>
+        var scene = new THREE.Scene();
+        
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+        
+        var geometry = new THREE.BoxGeometry(1, 1, 1);
+        var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+        var cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+        
+        var cameara = new THREE.PerspectiveCamera(75, renderer.domElement.clientWidth / renderer.domElement.clientHeight, 0.1, 1000);
+        cameara.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, cameara);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01
+        }
+        animate();
+
+
+    </script>
+</body>
+</html>
