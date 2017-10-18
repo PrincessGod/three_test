@@ -14,17 +14,17 @@
     <script src="../three_r87.js"></script>
     <script>
         var scene = new THREE.Scene();
-        
+
         var renderer = new THREE.WebGLRenderer({antialias: true});
-        renderer.setPixelRatio(window.devicePixelRatio);     
+        renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
-        
+
         var geometry = new THREE.BoxGeometry(1, 1, 1);
         var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
         var cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
-        
+
         var cameara = new THREE.PerspectiveCamera(75, renderer.domElement.clientWidth / renderer.domElement.clientHeight, 0.1, 1000);
         cameara.position.z = 5;
 
